@@ -1,0 +1,30 @@
+name: Windows EXE Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build EXE
+        run: |
+          pyinstaller --onefile --console --name E_Dedin_Oldun ses.py
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: E-Dedin-Oldun-Windows
+          path: dist/E_Dedin_Oldun.exe
