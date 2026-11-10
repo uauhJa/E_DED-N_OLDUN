@@ -1,0 +1,21 @@
+name: Minecraft Pack Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Package Minecraft Addon
+        run: |
+          mkdir -p output
+          cd output
+          zip -r E_Dedin_Oldun.mcpack ../manifest.json ../scripts
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: E-Dedin-Oldun-Minecraft
+          path: output/E_Dedin_Oldun.mcpack
