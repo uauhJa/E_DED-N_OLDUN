@@ -1,0 +1,25 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "E Dedin Oldun",
+    "description": "Mikrofondan E içeren kelimeleri algılar.",
+    "uuid": "7c3f1a92-6b84-4d2e-9a51-8e2f6c4b1d70",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "2a8d5c41-9e73-4f60-b2c1-7d5a3e8f9146",
+      "version": [1, 0, 0],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.0.0"
+    }
+  ]
+}
